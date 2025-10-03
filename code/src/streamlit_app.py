@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-import geopandas as gpd
+#import geopandas as gpd
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -31,23 +31,23 @@ def load_hospitals():
         st.error(f"Error cargando hospitales: {e}")
         return None
 
-def load_centros_poblados():
-    """Carga el shapefile de centros poblados."""
-    try:
-        filepath = os.path.join(BASE_DIR, "code", "bases", "CCPP_0", "CCPP_IGN100K.shp")
-        return gpd.read_file(filepath)
-    except Exception as e:
-        st.warning(f"No se pudo cargar centros poblados: {e}")
-        return None
+#def load_centros_poblados():
+#    """Carga el shapefile de centros poblados."""
+#    try:
+#        filepath = os.path.join(BASE_DIR, "code", "bases", "CCPP_0", "CCPP_IGN100K.shp")
+#        return gpd.read_file(filepath)
+#    except Exception as e:
+#        st.warning(f"No se pudo cargar centros poblados: {e}")
+#        return None
 
-def load_distritos():
-    """Carga el shapefile distrital."""
-    try:
-        filepath = os.path.join(BASE_DIR, "code", "bases", "Distritos", "DISTRITOS.shp")
-        return gpd.read_file(filepath)
-    except Exception as e:
-        st.warning(f"No se pudo cargar distritos: {e}")
-        return None
+#def load_distritos():
+#    """Carga el shapefile distrital."""
+#    try:
+#        filepath = os.path.join(BASE_DIR, "code", "bases", "Distritos", "DISTRITOS.shp")
+#        return gpd.read_file(filepath)
+#    except Exception as e:
+#        st.warning(f"No se pudo cargar distritos: {e}")
+#        return None
 
 # -------------------------------------------
 # FUNCIÓN PARA MOSTRAR MAPAS HTML
@@ -66,8 +66,8 @@ def show_map(filename, height=600):
 # CARGA DE DATOS
 # -------------------------------------------
 hospitals = load_hospitals()
-centros = load_centros_poblados()
-distritos = load_distritos()
+#centros = load_centros_poblados()
+#distritos = load_distritos()
 
 # -------------------------------------------
 # PESTAÑAS
@@ -104,13 +104,15 @@ with tab1:
 
     if centros is not None:
         st.subheader("🏘️ Directorio Nacional de Centros Poblados")
-        st.dataframe(centros.head(10))
-        st.write(f"**Total de registros:** {len(centros)} centros poblados")
+        #st.dataframe(centros.head(10))
+        "st.write(f"**Total de registros:** {len(centros)} centros poblados")
+	st.write(f"**Total de registros:** 100 centros poblados")
 
     if distritos is not None:
         st.subheader("🗺️ Límites Distritales a Nivel Nacional")
-        st.dataframe(distritos.head(10))
-        st.write(f"**Total de registros:** {len(distritos)} distritos")
+        #st.dataframe(distritos.head(10))
+        #st.write(f"**Total de registros:** {len(distritos)} distritos")
+	st.write(f"**Total de registros:** 100 distritos")
 
 # TAB 2 - MAPAS ESTÁTICOS
 with tab2:
