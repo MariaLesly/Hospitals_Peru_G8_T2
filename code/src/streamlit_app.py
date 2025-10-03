@@ -102,17 +102,17 @@ with tab1:
         st.dataframe(hospitals.head(10))
         st.write(f"**Total de registros:** {len(hospitals)} establecimientos")
 
-    if centros is not None:
-        st.subheader("🏘️ Directorio Nacional de Centros Poblados")
+    #if centros is not None:
+        #st.subheader("🏘️ Directorio Nacional de Centros Poblados")
         #st.dataframe(centros.head(10))
         #st.write(f"**Total de registros:** {len(centros)} centros poblados")
-        st.write(f"**Total de registros:** 100 centros poblados")
+        #st.write(f"**Total de registros:** 100 centros poblados")
 
-    if distritos is not None:
-        st.subheader("🗺️ Límites Distritales a Nivel Nacional")
+    #if distritos is not None:
+        #st.subheader("🗺️ Límites Distritales a Nivel Nacional")
         #st.dataframe(distritos.head(10))
         #st.write(f"**Total de registros:** {len(distritos)} distritos")
-        st.write(f"**Total de registros:** 100 distritos")
+        #st.write(f"**Total de registros:** 100 distritos")
 
 # TAB 2 - MAPAS ESTÁTICOS
 with tab2:
